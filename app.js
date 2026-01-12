@@ -45,14 +45,20 @@ app.get("/listings/:id", async (req, res) => {
     res.render("./listings/show.ejs", { listing });
 })
 
-
 //create route
 app.post("/listings", async (req, res) => {
-    let { title, description, price, location, country } = req.body;
     const newListing = new Listing(req.body);
     await newListing.save();
-    res.redirect(`/listings/${newListing._id}`);
+    res.redirect(`/listings`);
 });
+
+//edit route
+app.get("/listings/:id/edit", async (req, res) => {
+    let {id } = req.params;
+    const listing = await Listing.findById(id);
+    res.render("./listings/edit.ejs", { listing });
+});
+    
 // app.get("/testListing", async (req, res) => {
 //     let sampleListing = new Listing ({
 //         title: "Cozy Cottage",
