@@ -2,23 +2,23 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const listingSchema = new Schema({
-    title: { type: String, required: true },
-    description: String,
-    image: { 
-        filename:{
-            type: String,
-    default:"https://www.istockphoto.com/photo/a-backyard-with-a-swimming-pool-hot-tub-and-patio-furniture-at-a-modern-house-during-gm2160683333-581198815?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Farbnb&utm_term=arbnb%3A%3A%3A%3A3d243c0d-3685-42aa-90ab-485a44a9143b",
-        set: (v) => 
-            v === "" 
-        ? "https://www.istockphoto.com/photo/a-backyard-with-a-swimming-pool-hot-tub-and-patio-furniture-at-a-modern-house-during-gm2160683333-581198815?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Farbnb&utm_term=arbnb%3A%3A%3A%3A3d243c0d-3685-42aa-90ab-485a44a9143b" 
+  title: {
+    type: String,
+    required: true,
+  },
+  description: String,
+  image: {
+    type: String,
+    default:
+      "https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    set: (v) =>
+      v === ""
+        ? "https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
         : v,
-
-        }
-        
-    },
-    price:  Number,
-    location: String,
-    country: String,
+  },
+  price: Number,
+  location: String,
+  country: String,
 });
 
 const Listing = mongoose.model("Listing", listingSchema);
