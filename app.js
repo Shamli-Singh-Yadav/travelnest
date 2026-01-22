@@ -29,8 +29,9 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 
 app.get("/", (req, res) => {
-  res.send("Hi, I am root");
+  res.redirect("/listings");
 });
+
 
 //Index Route
 app.get("/listings", async (req, res) => {
